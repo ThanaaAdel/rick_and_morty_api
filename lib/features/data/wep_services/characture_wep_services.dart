@@ -1,14 +1,16 @@
+
 import '../../../core/api_services.dart';
-import '../models/characters/characters.dart';
+import '../models/characters_model/characters_model.dart';
 
 class CharacturesSevices {
-  Future<List<Characters>> getAllCharactures() async {
-    List<dynamic> data = await Api()
-        .get(uri: 'https://rickandmortyapi.com/api/character', token: '');
-    List<Characters> listProduct = [];
+  Future<List<CharactersModel>> getAllCharactures() async {
+    List<dynamic> data =
+        await Api().get(uri: 'https://rickandmortyapi.com/api/character', token: '');
+    List<CharactersModel> listCharacters = [];
     for (int i = 0; i < data.length; i++) {
-      listProduct.add(Characters.fromJson(data[i]));
+      listCharacters.add(CharactersModel.fromJson(data[i]));
+
     }
-    return listProduct;
+    return listCharacters;
   }
 }
