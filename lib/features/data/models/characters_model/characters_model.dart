@@ -1,7 +1,7 @@
 import 'location.dart';
 import 'origin.dart';
 
-class Characters {
+class CharactersModel {
   num? id;
   String? name;
   String? status;
@@ -15,7 +15,7 @@ class Characters {
   String? url;
   DateTime? created;
 
-  Characters({
+  CharactersModel({
     this.id,
     this.name,
     this.status,
@@ -30,26 +30,28 @@ class Characters {
     this.created,
   });
 
-  factory Characters.fromJson(Map<String, dynamic> json) => Characters(
-        id: num.tryParse(json['id'].toString()),
-        name: json['name']?.toString(),
-        status: json['status']?.toString(),
-        species: json['species']?.toString(),
-        type: json['type']?.toString(),
-        gender: json['gender']?.toString(),
-        origin: json['origin'] == null
-            ? null
-            : Origin.fromJson(Map<String, dynamic>.from(json['origin'])),
-        location: json['location'] == null
-            ? null
-            : Location.fromJson(Map<String, dynamic>.from(json['location'])),
-        image: json['image']?.toString(),
-        episode: List<String>.from(json['episode'] ?? []),
-        url: json['url']?.toString(),
-        created: json['created'] == null
-            ? null
-            : DateTime.tryParse(json['created'].toString()),
-      );
+  factory CharactersModel.fromJson(Map<String, dynamic> json) {
+    return CharactersModel(
+      id: num.tryParse(json['id'].toString()),
+      name: json['name']?.toString(),
+      status: json['status']?.toString(),
+      species: json['species']?.toString(),
+      type: json['type']?.toString(),
+      gender: json['gender']?.toString(),
+      origin: json['origin'] == null
+          ? null
+          : Origin.fromJson(Map<String, dynamic>.from(json['origin'])),
+      location: json['location'] == null
+          ? null
+          : Location.fromJson(Map<String, dynamic>.from(json['location'])),
+      image: json['image']?.toString(),
+      episode: List<String>.from(json['episode'] ?? []),
+      url: json['url']?.toString(),
+      created: json['created'] == null
+          ? null
+          : DateTime.tryParse(json['created'].toString()),
+    );
+  }
 
   Map<String, dynamic> toJson() => {
         if (id != null) 'id': id,

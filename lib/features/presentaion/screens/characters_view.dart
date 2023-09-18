@@ -7,9 +7,9 @@ class CharacterView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(children: [
-          Text(
+        Text(
           "sanaa",
-          style:  TextStyle(fontSize: 50, color: Colors.black),
+          style: TextStyle(fontSize: 50, color: Colors.black),
         ),
       ]),
     );
