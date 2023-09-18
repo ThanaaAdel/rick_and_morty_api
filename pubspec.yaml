@@ -52,6 +52,7 @@ dev_dependencies:
   go_router: ^10.1.2
   google_fonts: ^4.0.4
   google_fonts_arabic: ^1.1.7
+  http: ^0.13.6
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
